@@ -14,6 +14,7 @@ module.exports = {
     overlay: true,
     port: 3100
   },
+  devtool: 'source-map',
   module: {
     rules: [{
         test: /\.css$/,

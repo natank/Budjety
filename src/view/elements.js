@@ -6,7 +6,7 @@ export var domAddValue = null;
 export var domAddType = null;
 export var domAddDescription = null;
 export var domIncomeList = null;
-export var domExpencesList = null;
+export var domExpensesList = null;
 document.addEventListener('DOMContentLoaded', () => {
   domAvailableBudjet = document.querySelector('.budget__value');
   domBudgetIncome = document.querySelector('.budget__income');
@@ -16,5 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
   domAddType = document.querySelector('.add__type');
   domAddDescription = document.querySelector('.add__description');
   domIncomeList = document.querySelector('.income__list');
-  domExpencesList = document.querySelector('.expences__list');
+  domExpensesList = document.querySelector('.expenses__list');
 })

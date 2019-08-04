@@ -1,6 +1,6 @@
 import {
   domIncomeList,
-  domExpencesList
+  domExpensesList
 } from './elements';
 
 export function addNewIncome(income = {
@@ -20,9 +20,9 @@ export function addNewExpence(expence = {
   id: 0
 }) {
   // 1 - Create new elemnt with the properties specified
-  let markup = getExpenceMarkup(expence.name, expence.amount, expence.id);
+  let markup = getExpenseMarkup(expence.name, expence.amount, expence.id);
   // 2 - Add the element from the dom
-  domExpenceList.insertAdjacentHTML('beforeEnd', markup);
+  domExpensesList.insertAdjacentHTML('beforeEnd', markup);
 }
 
 export function deleteIncome(id = 0) {
@@ -68,7 +68,7 @@ function getIncomeMarkup(name, amount, id) {
   return markup;
 }
 
-function getExpenseMarkup(name, amount, percentage) {
+function getExpenseMarkup(name, amount, percentage, id) {
   let markup = `<div class="item clearfix" id="expense-${id}">
                   <div class="item__description">${name}</div>
                   <div class="right clearfix">

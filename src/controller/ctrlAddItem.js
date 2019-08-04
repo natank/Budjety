@@ -17,17 +17,24 @@ export function ctrlAddItem(event) {
   // 2. Get the filled input data
   let value = domAddValue.value;
   let description = domAddDescription.value;
-  // 2. Add the item to the budget model
+
+
+  // 3. build the new item
+  let max = 100000;
+  let id = Math.floor(Math.random() * Math.floor(max));
+
+  let newItem = {
+    name: description,
+    amount: Number(value),
+    id: id
+  }
+  // 4. Add the item to the budget model and view
   if (eventType === 'inc') {
-    let max = 100000;
-    let id = Math.floor(Math.random() * Math.floor(max));
-    let newIncome = {
-      name: description,
-      value: Number(value),
-      id: id
-    }
-    budjet.addNewIncome(newIncome);
-    budjetUI.addNewIncome(newIncome);
+    budjet.addNewIncome(newItem);
+    budjetUI.addNewIncome(newItem);
+  } else if (eventType === 'exp') {
+    budjet.addNewExpence(newItem);
+    budjetUI.addNewExpence(newItem);
   }
 
   // 3. Add the item to the UI
