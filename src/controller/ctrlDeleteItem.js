@@ -1,3 +1,10 @@
+import {
+  domAddBtn,
+  domAddType,
+  domAddValue,
+  domAddDescription
+} from '../view/elements';
+
 import * as budjetCtrl from '../model/budjetModel.js';
 import * as uiCtrl from '../view/budjetUI.js';
 

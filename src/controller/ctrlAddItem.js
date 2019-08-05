@@ -9,7 +9,7 @@ import {
 
 
 
-export function ctrlAddItem(event) {
+export function ctrlAddItem() {
   console.log('in ctrlAdd item')
   // 1. Determine event type
   let eventType = domAddType.value;
@@ -18,35 +18,35 @@ export function ctrlAddItem(event) {
   let value = domAddValue.value;
   let description = domAddDescription.value;
 
+  if (value && description) {
 
-  // 3. build the new item
-  let max = 100000;
-  let id = Math.floor(Math.random() * Math.floor(max));
+    // 3. build the new item
+    let max = 100000;
+    let id = Math.floor(Math.random() * Math.floor(max));
 
-  let newItem = {
-    name: description,
-    amount: Number(value),
-    id: id
+    let newItem = {
+      name: description,
+      amount: Number(value),
+      id: id
+    }
+    // 4. Add the item to the budget model and view
+    if (eventType === 'inc') {
+      budjet.addNewIncome(newItem);
+      budjetUI.addNewIncome(newItem);
+    } else if (eventType === 'exp') {
+      budjet.addNewExpence(newItem);
+      budjetUI.addNewExpence(newItem);
+    }
+    domAddValue.value = '';
+    domAddDescription.value = '';
   }
-  // 4. Add the item to the budget model and view
-  if (eventType === 'inc') {
-    budjet.addNewIncome(newItem);
-    budjetUI.addNewIncome(newItem);
-  } else if (eventType === 'exp') {
-    budjet.addNewExpence(newItem);
-    budjetUI.addNewExpence(newItem);
-  }
-
-  // 3. Add the item to the UI
-
-  // 4. Calculate the budget
-
-  // 5. Display the budget on the UI
-  console.log("It workds")
 }
 
 document.addEventListener('readystatechange', (event) => {
   if (document.readyState === "complete") {
     domAddBtn.addEventListener('click', ctrlAddItem);
+    document.addEventListener('keydown', (event) => {
+      if (event.keyCode === 13) ctrlAddItem()
+    })
   }
 });
