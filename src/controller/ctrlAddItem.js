@@ -10,7 +10,7 @@ import {
 
 
 export function ctrlAddItem() {
-  console.log('in ctrlAdd item')
+
   // 1. Determine event type
   let eventType = domAddType.value;
 

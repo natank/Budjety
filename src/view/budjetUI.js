@@ -20,7 +20,7 @@ export function addNewExpence(expence = {
   id: 0
 }) {
   // 1 - Create new elemnt with the properties specified
-  let markup = getExpenseMarkup(expence.name, expence.amount, expence.id);
+  let markup = getExpenseMarkup(expence.name, expence.amount, expence.percentage, expence.id);
   // 2 - Add the element from the dom
   domExpensesList.insertAdjacentHTML('beforeEnd', markup);
 }
@@ -34,7 +34,7 @@ export function deleteIncome(id = 0) {
 
 export function deleteExpence(id = 0) {
   // 1 - find the element by data-id field
-  let elemToDelete = document.getElementById(`expence-${id}`)
+  let elemToDelete = document.getElementById(`expense-${id}`)
   // 2 - remove the element from the dom
   elemToDelete.remove();
 }
@@ -68,7 +68,7 @@ function getIncomeMarkup(name, amount, id) {
   return markup;
 }
 
-function getExpenseMarkup(name, amount, percentage, id) {
+function getExpenseMarkup(name, amount, percentage = 0, id) {
   let markup = `<div class="item clearfix" id="expense-${id}">
                   <div class="item__description">${name}</div>
                   <div class="right clearfix">
