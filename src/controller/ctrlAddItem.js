@@ -1,12 +1,14 @@
-import * as budjet from '../model/budjetModel.js';
-import * as budjetUI from '../view/budjetUI.js';
+import * as budget from '../model/budgetModel.js';
+import * as budgetUI from '../view/budgetUI.js';
 import {
   domAddBtn,
   domAddType,
   domAddValue,
   domAddDescription
 } from '../view/elements';
-
+import {
+  updateUIBudget
+} from './updateUIBudget';
 
 
 export function ctrlAddItem() {
@@ -31,16 +33,24 @@ export function ctrlAddItem() {
     }
     // 4. Add the item to the budget model and view
     if (eventType === 'inc') {
-      budjet.addNewIncome(newItem);
-      budjetUI.addNewIncome(newItem);
+      budget.addNewIncome(newItem);
+      budgetUI.addNewIncome(newItem);
     } else if (eventType === 'exp') {
-      budjet.addNewExpence(newItem);
-      budjetUI.addNewExpence(newItem);
+      budget.addNewExpense(newItem);
+      budgetUI.addNewExpense(newItem);
     }
+
+    // 5. reset the UI inputs
     domAddValue.value = '';
     domAddDescription.value = '';
+
+    // 6. update the UI fields
+    updateUIBudget();
+
   }
 }
+
+
 
 document.addEventListener('readystatechange', (event) => {
   if (document.readyState === "complete") {

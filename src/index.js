@@ -1,3 +1,3 @@
-import './controller/budjetController.js'
+import './controller/budgetController.js'
 
 import './assets/style.css'
