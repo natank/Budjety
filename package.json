@@ -23,7 +23,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.8.1",
     "@fortawesome/free-regular-svg-icons": "^5.8.1",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.27.10",
     "browser-sync-webpack-plugin": "^2.2.2",
     "browsersync": "0.0.1-security",
     "clean-webpack-plugin": "^2.0.1",
